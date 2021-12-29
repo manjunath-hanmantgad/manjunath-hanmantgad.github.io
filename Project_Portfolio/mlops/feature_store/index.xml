@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Feature store on Home</title>
+    <link>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/feature_store/</link>
+    <description>Recent content in Feature store on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate><atom:link href="https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/feature_store/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Feature store</title>
+      <link>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/feature_store/sample_2/</link>
+      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+      
+      <guid>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/feature_store/sample_2/</guid>
+      <description>Feature store is an data system for managing and serving machine learning features to models in production. It is a tool for storing commonly used features.It consists of a centralized registry where we can publish features and serve ready-made features for production ML models.
+Functions of feature store:
+ Transforms raw data into feature values by executing data pipelines. Stores and manages feature values. Retrieves data for training or inference.  </description>
+    </item>
+    
+  </channel>
+</rss>

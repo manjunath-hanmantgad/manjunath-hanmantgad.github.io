@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MLOPS on Home</title>
+    <link>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/</link>
+    <description>Recent content in MLOPS on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate><atom:link href="https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data and Model Versioning</title>
+      <link>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/data-and-model-versioning/</link>
+      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+      
+      <guid>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/data-and-model-versioning/</guid>
+      <description>my project will come here
+Versioning Data and machine learning models using DAGsHub and DVC.
+Link to Github repo</description>
+    </item>
+    
+    <item>
+      <title>Feature store</title>
+      <link>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/feature-stores/</link>
+      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+      
+      <guid>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/feature-stores/</guid>
+      <description>my project will come here
+Feature store is an data system for managing and serving machine learning features to models in production. It is a tool for storing commonly used features.It consists of a centralized registry where we can publish features and serve ready-made features for production ML models.
+Functions of feature store:
+ Transforms raw data into feature values by executing data pipelines. Stores and manages feature values. Retrieves data for training or inference.</description>
+    </item>
+    
+    <item>
+      <title>Model serving</title>
+      <link>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/model-serving/</link>
+      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+      
+      <guid>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/model-serving/</guid>
+      <description>my project will come here
+Can serve multiple models like LightGBM , XGBoost or multiple versions of the same model simultaneously. Exposes both gRPC as well as HTTP inference endpoints. Allows deployment of new model versions without changing any client code. Supports canarying new versions and A/B testing experimental models.
+Link to Github repo</description>
+    </item>
+    
+    <item>
+      <title>Model Testing and end-to end continuous Monitoring</title>
+      <link>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/testing-and-monitoring/</link>
+      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+      
+      <guid>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/testing-and-monitoring/</guid>
+      <description>my project will come here Unit testing , A/B Testing ,regression and integration tests designed and deployed for production ML models.
+Link to Github repo</description>
+    </item>
+    
+    <item>
+      <title>Model Training and Orchestration</title>
+      <link>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/model-training-and-orchestration/</link>
+      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+      
+      <guid>https://manjunath-hanmantgad.github.io/Project_Portfolio/mlops/model-training-and-orchestration/</guid>
+      <description>my project will come here Make training and deployments of machine learning pipelines easier and faster with KubeFlow and Airflow
+Link to Github repo</description>
+    </item>
+    
+  </channel>
+</rss>
