@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Manjunath — AI systems that account for themselves</title>
-<meta name="description" content="I build the part of AI that has to hold up afterwards: access control enforced before retrieval, citations on every answer, cost and quality telemetry, and audit trails that survive an auditor.">
+<meta name="description" content="Production AI systems with access control, citations, telemetry, durable workflows, and audit trails that survive scrutiny.">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#123a5e">
 <meta property="og:title" content="Manjunath — AI systems that account for themselves">
@@ -17,13 +17,12 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="bar">
-  <a class="bar__id" href="#top">
+  <a class="bar__id" href="#top" aria-label="Manjunath, back to top">
     <svg class="bar__glyph" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="8" width="22" height="16"/><path d="M10 15h5M10 19h10"/></svg>
-    Manjunath
+    <span>Manjunath</span>
   </a>
   <nav class="bar__nav" aria-label="Sections">
     <a href="#difference">The difference</a>
@@ -32,256 +31,399 @@
     <a href="#contact">Contact</a>
   </nav>
   <a class="bar__cta" href="mailto:mhanmant.freebi@gmail.com?subject=Intro%20call">Start a conversation</a>
+  <span class="bar__progress" aria-hidden="true"></span>
 </header>
 
 <main id="main">
-
-<!-- ══════════ HERO — drenched ══════════ -->
 <section class="hero" id="top">
+  <span class="hero__blueprint hero__blueprint--a" aria-hidden="true">TRACE / 001</span>
+  <span class="hero__blueprint hero__blueprint--b" aria-hidden="true">CONTROL PLANE / VERIFIED</span>
   <div class="hero__grid">
-
     <div class="hero__lead">
+      <p class="eyebrow eyebrow--inverse">Production AI engineering</p>
       <h1 class="plate" id="hero-h1">
         <span class="plate__l">AI systems</span>
         <span class="plate__l">that account</span>
         <span class="plate__l">for themselves.</span>
       </h1>
-
       <p class="hero__sub">
         Every answer cites the document it came from. Every approval names the clause that
         justified it. Every correction is stamped with a timestamp and a person. I build the
-        half of an AI system that has to hold up <em>after</em> the demo — the auth, the access
-        control, the telemetry, the migrations, and the record.
+        half of an AI system that has to hold up <em>after</em> the demo: authentication, access
+        control, telemetry, migrations, and the record.
       </p>
-
       <div class="hero__act">
-        <a class="btn btn--fill" href="mailto:mhanmant.freebi@gmail.com?subject=Intro%20call">Start a conversation</a>
-        <a class="btn btn--line" href="#work">Look at the systems</a>
+        <a class="btn btn--fill" href="mailto:mhanmant.freebi@gmail.com?subject=Intro%20call"><span>Start a conversation</span><span aria-hidden="true">↗</span></a>
+        <a class="btn btn--line" href="#work"><span>Look at the systems</span><span aria-hidden="true">↓</span></a>
       </div>
     </div>
 
-    <!-- The nameplate: the brand device, used once. -->
-    <dl class="nameplate">
-      <div><dt>Engineer</dt><dd>Manjunath Hanmantgad</dd></div>
-      <div><dt>Based</dt><dd>India — working remote</dd></div>
-      <div><dt>Discipline</dt><dd>LLM systems on Azure</dd></div>
-      <div><dt>Built</dt><dd>Five, to deployment standard</dd></div>
-      <div><dt>Source</dt><dd>Private — open under NDA</dd></div>
-      <div class="nameplate__sig"><dt>Status</dt><dd>Available for new work</dd></div>
-    </dl>
+    <div class="hero__proof">
+      <figure class="hero-trace" aria-labelledby="hero-trace-title hero-trace-desc">
+        <figcaption class="hero-trace__head">
+          <span id="hero-trace-title">Evidence path</span>
+          <span>LIVE CONTROL MODEL</span>
+        </figcaption>
+        <svg viewBox="0 0 620 360" role="img" aria-labelledby="hero-trace-title hero-trace-desc">
+          <desc id="hero-trace-desc">A request passes through identity and access controls, retrieves an authorised source, creates a cited answer, and appends an audit record. A restricted document is rejected before retrieval.</desc>
+          <g class="trace-grid" aria-hidden="true">
+            <path d="M0 72H620M0 144H620M0 216H620M0 288H620"/>
+            <path d="M124 0V360M248 0V360M372 0V360M496 0V360"/>
+          </g>
+          <g class="trace-flow">
+            <path class="trace-path trace-path--main" pathLength="1" d="M64 68H178V135H300V208H426V284H552"/>
+            <path class="trace-path trace-path--reject" pathLength="1" d="M112 292H214V208H300"/>
+            <circle class="trace-token" r="6"><animateMotion dur="5.8s" repeatCount="indefinite" path="M64 68H178V135H300V208H426V284H552"/></circle>
+          </g>
+          <g class="trace-node trace-node--request" transform="translate(30 40)">
+            <rect width="132" height="56" rx="2"/><text x="14" y="22">01 / REQUEST</text><text class="trace-node__value" x="14" y="42">claim query</text>
+          </g>
+          <g class="trace-node trace-node--identity" transform="translate(178 106)">
+            <rect width="142" height="58" rx="2"/><text x="14" y="23">02 / IDENTITY</text><text class="trace-node__value" x="14" y="43">role verified</text>
+          </g>
+          <g class="trace-node trace-node--gate" transform="translate(300 179)">
+            <rect width="142" height="58" rx="2"/><text x="14" y="23">03 / ACCESS</text><text class="trace-node__value" x="14" y="43">candidate gate</text>
+          </g>
+          <g class="trace-node trace-node--answer" transform="translate(426 255)">
+            <rect width="154" height="58" rx="2"/><text x="14" y="23">04 / ANSWER</text><text class="trace-node__value" x="14" y="43">source cited</text>
+          </g>
+          <g class="trace-denied" transform="translate(30 264)">
+            <rect width="132" height="56" rx="2"/><text x="14" y="22">RESTRICTED DOC</text><text class="trace-node__value" x="14" y="42">rejected</text>
+          </g>
+          <g class="trace-stamp" transform="translate(458 70) rotate(-5)">
+            <rect width="126" height="52" rx="2"/><text x="63" y="22" text-anchor="middle">AUDIT RECORD</text><text x="63" y="39" text-anchor="middle">APPENDED</text>
+          </g>
+          <path class="trace-denial-mark" d="M281 190l38 38M319 190l-38 38"/>
+        </svg>
+        <p class="hero-trace__foot"><span>Request ID 8F2A</span><span>Evidence retained</span></p>
+      </figure>
 
+      <dl class="nameplate">
+        <div><dt>Engineer</dt><dd>Manjunath Hanmantgad</dd></div>
+        <div><dt>Based</dt><dd>India, working remote</dd></div>
+        <div><dt>Discipline</dt><dd>Production LLM systems</dd></div>
+        <div><dt>Built</dt><dd>Five, to deployment standard</dd></div>
+        <div><dt>Source</dt><dd>Private, open under NDA</dd></div>
+        <div class="nameplate__sig"><dt>Status</dt><dd>Available for new work</dd></div>
+      </dl>
+    </div>
   </div>
 </section>
 
-<!-- ══════════ THE DIFFERENCE — spec table ══════════ -->
 <section class="sheet" id="difference">
-  <div class="sheet__head">
-    <h2 class="h2">The demo is the easy half.</h2>
-    <p class="sheet__note">
-      Getting a model to return an answer takes an afternoon. Everything in the right-hand
-      column is what takes the other three months, and it's the only reason a system is still
-      standing a year later.
-    </p>
+  <div class="section-head">
+    <p class="eyebrow">01 / Production controls</p>
+    <div class="section-head__copy">
+      <h2 class="h2">The demo is the easy half.</h2>
+      <p class="sheet__note">
+        Getting a model to return an answer takes an afternoon. Everything in the right-hand
+        column is what takes the other three months, and it is the reason a system is still
+        standing a year later.
+      </p>
+    </div>
   </div>
 
-  <table class="spec">
-    <caption class="vh">Comparison of prototype practice against production practice</caption>
-    <thead>
-      <tr>
-        <th scope="col">Concern</th>
-        <th scope="col" data-short="Prototype">How a prototype does it</th>
-        <th scope="col" data-short="Shipped">How I ship it</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><th scope="row">Secrets</th>       <td>Hardcoded API keys</td>          <td>Key Vault with Managed Identity</td></tr>
-      <tr><th scope="row">Data</th>          <td>SQLite, no migrations</td>       <td>PostgreSQL with Alembic migrations</td></tr>
-      <tr><th scope="row">Access</th>        <td>No auth</td>                     <td>JWT, API keys, OIDC, Entra ID</td></tr>
-      <tr><th scope="row">Logging</th>       <td><code>print()</code></td>        <td>Structured JSON into Application Insights</td></tr>
-      <tr><th scope="row">Correctness</th>   <td>No tests</td>                    <td>pytest, integration tests, golden eval sets</td></tr>
-      <tr><th scope="row">Infrastructure</th><td><code>docker run</code> in a README</td><td>Bicep IaC onto Container Apps</td></tr>
-      <tr><th scope="row">Release</th>       <td>"Works on my machine"</td>       <td>CI to staging to production, with a manual gate</td></tr>
-    </tbody>
-  </table>
+  <div class="spec-wrap">
+    <div class="spec-wrap__rail" aria-hidden="true"><span>CONTROL REGISTER</span><span>07 ITEMS</span></div>
+    <table class="spec">
+      <caption class="vh">Comparison of prototype practice against production practice</caption>
+      <thead>
+        <tr><th scope="col">Concern</th><th scope="col" data-short="Prototype">How a prototype does it</th><th scope="col" data-short="Shipped">How I ship it</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Secrets</th><td>Hardcoded API keys</td><td>Key Vault with Managed Identity</td></tr>
+        <tr><th scope="row">Data</th><td>SQLite, no migrations</td><td>PostgreSQL with Alembic migrations</td></tr>
+        <tr><th scope="row">Access</th><td>No authentication</td><td>JWT, API keys, OIDC, Entra ID</td></tr>
+        <tr><th scope="row">Logging</th><td><code>print()</code></td><td>Structured JSON into Application Insights</td></tr>
+        <tr><th scope="row">Correctness</th><td>No tests</td><td>pytest, integration tests, golden eval sets</td></tr>
+        <tr><th scope="row">Infrastructure</th><td><code>docker run</code> in a README</td><td>Bicep IaC onto Container Apps</td></tr>
+        <tr><th scope="row">Release</th><td>“Works on my machine”</td><td>CI to staging to production, with a manual gate</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
-<!-- ══════════ WORK ══════════ -->
 <section class="work" id="work">
-  <div class="work__intro">
-    <h2 class="h2">Five systems.</h2>
-    <p class="sheet__note">
-      Each one runs behind authentication, emits metrics, deploys from a pipeline, and hands
-      off with documentation. These are screenshots of the running software.
-    </p>
+  <div class="section-head work__intro">
+    <p class="eyebrow">02 / Deployed systems</p>
+    <div class="section-head__copy">
+      <h2 class="h2">Five systems. Five records.</h2>
+      <p class="sheet__note">Each one runs behind authentication, emits metrics, deploys from a pipeline, and hands off with documentation. These are screenshots of running software.</p>
+    </div>
   </div>
 
-  <!-- 1 -->
-  <article class="sys sys--imageRight">
-    <div class="sys__text">
-      <h3 class="sys__name">LLM Observatory</h3>
-      <p class="sys__claim">LLM features degrade quietly. This is the instrument that notices.</p>
-      <p class="sys__body">
-        A prompt change or a model update can raise hallucination rates and cost long before
-        any health check reacts. Teams running support, sales, and research endpoints usually
-        can't say which one is expensive, or which one is getting worse.
-      </p>
-      <ul class="points">
-        <li><b>Scored per trace.</b> Faithfulness, relevancy, and hallucination, with LLM-as-judge and a deterministic fallback.</li>
-        <li><b>Incidents, not alerts.</b> A threshold breach opens an incident that moves acknowledge to resolve.</li>
-        <li><b>Cost attributed.</b> Tokens and dollars per endpoint, per model, per window.</li>
-      </ul>
-      <p class="sys__infra">FastAPI · Prometheus · Application Insights · Azure OpenAI · PostgreSQL</p>
-    </div>
-    <figure class="shot">
-      <img src="img/observatory.png" alt="The Observatory dashboard: per-endpoint latency, token cost, and evaluation scores across live LLM traffic." width="960" height="863" loading="lazy" decoding="async">
-      <figcaption>Traffic, cost, and quality for every endpoint in one view.</figcaption>
-    </figure>
-  </article>
+  <div class="work__body">
+    <aside class="work-spine" aria-label="System index">
+      <p class="work-spine__label">SYSTEM REGISTER</p>
+      <nav class="work-spine__nav">
+        <a class="work-spine__link is-active" data-system-target="1" href="#system-observatory"><span>01</span><span>Observatory</span></a>
+        <a class="work-spine__link" data-system-target="2" href="#system-rag"><span>02</span><span>Enterprise RAG</span></a>
+        <a class="work-spine__link" data-system-target="3" href="#system-workbench"><span>03</span><span>Workbench</span></a>
+        <a class="work-spine__link" data-system-target="4" href="#system-procure"><span>04</span><span>ProcureAI</span></a>
+        <a class="work-spine__link" data-system-target="5" href="#system-orchestration"><span>05</span><span>Orchestration</span></a>
+      </nav>
+    </aside>
 
-  <!-- 2 — the strongest proof, so it gets the wide treatment -->
-  <article class="sys sys--wide">
-    <div class="sys__text">
-      <h3 class="sys__name">Enterprise RAG</h3>
-      <p class="sys__claim">Most RAG systems filter the answer. This one never retrieves the document.</p>
-      <p class="sys__body">
-        Applying access control after retrieval means a contractor can still pull a restricted
-        file if the question is phrased well enough. Here the restricted documents leave the
-        candidate set before any AI processing happens — the screenshot below is the same
-        question asked twice, once as an employee and once as finance.
-      </p>
-      <ul class="points">
-        <li><b>Enforced before retrieval.</b> Not filtered out of the response afterwards.</li>
-        <li><b>No citation, no answer.</b> Every response names its source document, chunk, and retrieval score.</li>
-        <li><b>Leakage is measured.</b> A built-in eval set tracks citation coverage and restricted-document leakage as numbers.</li>
-      </ul>
-      <p class="sys__infra">FastAPI · Azure AI Search · Entra ID · Key Vault · PostgreSQL</p>
-    </div>
-    <figure class="shot shot--wide">
-      <img src="img/rag-permissions.png" alt="One question asked under two roles. The employee gets no accessible source material; finance gets an answer citing the finance-forecast document." width="1440" height="1000" loading="lazy" decoding="async">
-      <figcaption>Same question, two roles. The finance forecast is never in the employee's candidate set.</figcaption>
-    </figure>
-  </article>
+    <div class="work__systems">
+      <article class="sys sys--imageRight" id="system-observatory" data-system-index="1">
+        <div class="sys__text">
+          <p class="sys__index">SYSTEM 01 / OBSERVABILITY</p>
+          <h3 class="sys__name">LLM Observatory</h3>
+          <p class="sys__claim">LLM features degrade quietly. This is the instrument that notices.</p>
+          <p class="sys__body">A prompt change or model update can raise hallucination rates and cost long before a health check reacts. This system attributes quality, latency, and spend to the exact endpoint and trace.</p>
+          <ul class="points">
+            <li><b>Scored per trace.</b> Faithfulness, relevancy, and hallucination, with LLM-as-judge and a deterministic fallback.</li>
+            <li><b>Incidents, not alerts.</b> A threshold breach opens an incident that moves from acknowledge to resolve.</li>
+            <li><b>Cost attributed.</b> Tokens and dollars per endpoint, per model, per window.</li>
+          </ul>
+          <p class="sys__infra">FastAPI · Prometheus · Application Insights · Azure OpenAI · PostgreSQL</p>
+        </div>
+        <div class="sys__visual">
+          <figure class="system-diagram system-diagram--observatory">
+            <figcaption><span>Signal path</span><span>DEGRADATION → INCIDENT</span></figcaption>
+            <svg viewBox="0 0 720 220" aria-hidden="true">
+              <path class="diagram-path" pathLength="1" d="M36 110H158M262 110H378M482 110H684"/>
+              <g class="diagram-node" transform="translate(36 76)"><rect width="122" height="68"/><text x="14" y="25">LIVE TRACE</text><text class="diagram-value" x="14" y="49">/support</text></g>
+              <g class="diagram-node" transform="translate(158 62)"><rect width="104" height="96"/><text x="14" y="25">SCORES</text><text class="diagram-value" x="14" y="50">0.92 faith</text><text class="diagram-value" x="14" y="70">0.68 rel.</text></g>
+              <g class="diagram-node diagram-node--warning" transform="translate(378 76)"><rect width="104" height="68"/><text x="14" y="25">THRESHOLD</text><text class="diagram-value" x="14" y="49">BREACHED</text></g>
+              <g class="diagram-node diagram-node--final" transform="translate(482 76)"><rect width="202" height="68"/><text x="14" y="25">INCIDENT / INC-014</text><text class="diagram-value" x="14" y="49">OPEN → ACKNOWLEDGED</text></g>
+              <circle class="diagram-pulse" cx="430" cy="110" r="5"/>
+            </svg>
+          </figure>
+          <figure class="shot">
+            <div class="shot__frame">
+              <div class="shot__meta"><span>RUNNING SYSTEM / CAPTURE 01</span><span>STATUS: DEPLOYMENT STANDARD</span></div>
+              <button class="shot__open" type="button" data-src="img/observatory.png" data-alt="The Observatory dashboard showing per-endpoint latency, token cost, evaluation scores, and incidents." data-caption="Traffic, cost, quality, and incident state for every LLM endpoint in one operational view." aria-label="Inspect the LLM Observatory screenshot">
+                <img src="img/observatory.png" alt="The Observatory dashboard: per-endpoint latency, token cost, and evaluation scores across live LLM traffic." width="960" height="863" loading="lazy" decoding="async">
+                <span class="shot__focus shot__focus--one"><span>QUALITY SCORE</span></span>
+                <span class="shot__focus shot__focus--two"><span>INCIDENT STATE</span></span>
+                <span class="shot__inspect">Inspect evidence <span aria-hidden="true">↗</span></span>
+              </button>
+            </div>
+            <figcaption>Traffic, cost, and quality for every endpoint in one view.</figcaption>
+          </figure>
+        </div>
+      </article>
 
-  <!-- 3 -->
-  <article class="sys sys--imageLeft">
-    <figure class="shot">
-      <img src="img/workbench.png" alt="The Workbench dashboard: extraction metrics, per-document confidence scores, field-level validation results, and the review queue." width="1264" height="1200" loading="lazy" decoding="async">
-      <figcaption>Confidence per field, validation results, and the review queue in one view.</figcaption>
-    </figure>
-    <div class="sys__text">
-      <h3 class="sys__name">Document Intelligence Workbench</h3>
-      <p class="sys__claim">A confidence score for every field, not a pass or fail for the page.</p>
-      <p class="sys__body">
-        Finance and legal teams key invoice and contract data into downstream systems by hand.
-        It's repetitive, it's error-prone, and it leaves no record of what was extracted, what
-        was corrected, or who changed it. The reconciliation problem shows up weeks later.
-      </p>
-      <ul class="points">
-        <li><b>Rules, not vibes.</b> Invoice totals must match line items; contract expiry must follow the effective date.</li>
-        <li><b>Low confidence routes to a person.</b> Nothing reaches a downstream system unreviewed.</li>
-        <li><b>Corrections are evidence.</b> Every extraction and approval is logged with a timestamp, an actor, and a payload.</li>
-      </ul>
-      <p class="sys__infra">FastAPI · Azure Document Intelligence · Blob Storage · PostgreSQL</p>
-    </div>
-  </article>
+      <article class="sys sys--wide" id="system-rag" data-system-index="2">
+        <div class="sys__text">
+          <p class="sys__index">SYSTEM 02 / RETRIEVAL SECURITY</p>
+          <h3 class="sys__name">Enterprise RAG</h3>
+          <p class="sys__claim">Most RAG systems filter the answer. This one never retrieves the restricted document.</p>
+          <p class="sys__body">Access control is applied before retrieval. Restricted documents leave the candidate set before any AI processing happens, so a contractor cannot extract a finance file by phrasing the question cleverly.</p>
+          <ul class="points">
+            <li><b>Enforced before retrieval.</b> Not filtered out of the response afterwards.</li>
+            <li><b>No citation, no answer.</b> Every response names its source document, chunk, and retrieval score.</li>
+            <li><b>Leakage is measured.</b> A built-in eval set tracks citation coverage and restricted-document leakage.</li>
+          </ul>
+          <p class="sys__infra">FastAPI · Azure AI Search · Entra ID · Key Vault · PostgreSQL</p>
+        </div>
+        <figure class="system-diagram system-diagram--rag">
+          <figcaption><span>Authorisation path</span><span>FILTER BEFORE RETRIEVAL</span></figcaption>
+          <svg viewBox="0 0 720 240" aria-hidden="true">
+            <path class="diagram-path" pathLength="1" d="M42 72H190V120H328V120H470V120H674"/>
+            <path class="diagram-path diagram-path--denied" pathLength="1" d="M42 184H190V148"/>
+            <g class="diagram-node" transform="translate(42 40)"><rect width="148" height="64"/><text x="14" y="24">USER / FINANCE</text><text class="diagram-value" x="14" y="47">role claims</text></g>
+            <g class="diagram-node diagram-node--gate" transform="translate(190 86)"><rect width="138" height="68"/><text x="14" y="25">ACCESS GATE</text><text class="diagram-value" x="14" y="49">candidate filter</text></g>
+            <g class="diagram-node" transform="translate(328 86)"><rect width="142" height="68"/><text x="14" y="25">RETRIEVAL</text><text class="diagram-value" x="14" y="49">3 allowed chunks</text></g>
+            <g class="diagram-node diagram-node--final" transform="translate(470 86)"><rect width="204" height="68"/><text x="14" y="25">ANSWER + CITATION</text><text class="diagram-value" x="14" y="49">forecast.pdf / 0.91</text></g>
+            <g class="diagram-node diagram-node--warning" transform="translate(42 152)"><rect width="148" height="64"/><text x="14" y="24">RESTRICTED DOC</text><text class="diagram-value" x="14" y="47">removed</text></g>
+            <path class="diagram-cross" d="M242 98l34 44M276 98l-34 44"/>
+          </svg>
+        </figure>
+        <figure class="shot shot--wide">
+          <div class="shot__frame">
+            <div class="shot__meta"><span>RUNNING SYSTEM / CAPTURE 02</span><span>ACCESS TEST: TWO ROLES</span></div>
+            <button class="shot__open" type="button" data-src="img/rag-permissions.png" data-alt="The same finance question asked under employee and finance roles, with different accessible source sets." data-caption="The employee receives no restricted source material. Finance receives a cited answer because authorisation is enforced before retrieval." aria-label="Inspect the Enterprise RAG permission test screenshot">
+              <img src="img/rag-permissions.png" alt="One question asked under two roles. The employee gets no accessible source material; finance gets an answer citing the finance-forecast document." width="1440" height="1000" loading="lazy" decoding="async">
+              <span class="shot__focus shot__focus--rag-one"><span>EMPLOYEE: NO SOURCE</span></span>
+              <span class="shot__focus shot__focus--rag-two"><span>FINANCE: CITED SOURCE</span></span>
+              <span class="shot__inspect">Inspect evidence <span aria-hidden="true">↗</span></span>
+            </button>
+          </div>
+          <figcaption>Same question, two roles. The finance forecast is never in the employee candidate set.</figcaption>
+        </figure>
+      </article>
 
-  <!-- 4 -->
-  <article class="sys sys--imageRight">
-    <div class="sys__text">
-      <h3 class="sys__name">ProcureAI</h3>
-      <p class="sys__claim">When a regulator asks why a $200,000 purchase was approved, the answer shouldn't be in an email thread.</p>
-      <p class="sys__body">
-        Purchase approvals run on institutional memory rather than the policy document. Budget
-        checks happen by email. Vendor risk gets assumed. Five specialist agents — policy,
-        vendor, budget, risk, and approval — each validate one domain and hand back a typed result.
-      </p>
-      <ul class="points">
-        <li><b>Decisions cite the clause.</b> The policy agent retrieves the exact text from indexed policy, not a generic rule.</li>
-        <li><b>Agents don't parse strings.</b> They exchange typed message schemas over A2A, with no hidden state.</li>
-        <li><b>Every request produces a packet.</b> Structured, exportable, and built to be handed to an auditor.</li>
-      </ul>
-      <p class="sys__infra">FastAPI · LangChain · MCP · A2A · PostgreSQL · Azure OpenAI</p>
-    </div>
-    <figure class="shot">
-      <img src="img/procure-result.png" alt="A completed purchase request showing the evidence packet: policy citations, budget figures, vendor status, risk scores, and required approvers." width="1440" height="900" loading="lazy" decoding="async">
-      <figcaption>The evidence packet behind a single approval decision.</figcaption>
-    </figure>
-  </article>
+      <article class="sys sys--imageLeft" id="system-workbench" data-system-index="3">
+        <div class="sys__text">
+          <p class="sys__index">SYSTEM 03 / DOCUMENT CONTROL</p>
+          <h3 class="sys__name">Document Intelligence Workbench</h3>
+          <p class="sys__claim">A confidence score for every field, not a pass or fail for the page.</p>
+          <p class="sys__body">Finance and legal teams key invoice and contract data into downstream systems by hand. This system validates each field, sends low-confidence values to a person, and records every correction.</p>
+          <ul class="points">
+            <li><b>Rules, not vibes.</b> Invoice totals must match line items; contract expiry must follow the effective date.</li>
+            <li><b>Low confidence routes to a person.</b> Nothing reaches a downstream system unreviewed.</li>
+            <li><b>Corrections are evidence.</b> Every extraction and approval is logged with a timestamp, actor, and payload.</li>
+          </ul>
+          <p class="sys__infra">FastAPI · Azure Document Intelligence · Blob Storage · PostgreSQL</p>
+        </div>
+        <div class="sys__visual sys__visual--left">
+          <figure class="system-diagram system-diagram--workbench">
+            <figcaption><span>Extraction path</span><span>FIELD CONFIDENCE → REVIEW</span></figcaption>
+            <svg viewBox="0 0 720 220" aria-hidden="true">
+              <path class="diagram-path" pathLength="1" d="M42 110H214M334 110H472M588 110H680"/>
+              <g class="diagram-node" transform="translate(42 58)"><rect width="172" height="104"/><text x="14" y="25">INVOICE / 481</text><text class="diagram-value" x="14" y="52">total 0.99</text><text class="diagram-value" x="14" y="73">vendor 0.96</text><text class="diagram-value diagram-value--warn" x="14" y="94">tax code 0.61</text></g>
+              <g class="diagram-node diagram-node--gate" transform="translate(214 76)"><rect width="120" height="68"/><text x="14" y="25">VALIDATE</text><text class="diagram-value" x="14" y="49">rules pass</text></g>
+              <g class="diagram-node diagram-node--warning" transform="translate(472 76)"><rect width="116" height="68"/><text x="14" y="25">HUMAN</text><text class="diagram-value" x="14" y="49">tax review</text></g>
+              <g class="diagram-node diagram-node--final" transform="translate(588 76)"><rect width="92" height="68"/><text x="14" y="25">LOG</text><text class="diagram-value" x="14" y="49">signed</text></g>
+            </svg>
+          </figure>
+          <figure class="shot">
+            <div class="shot__frame">
+              <div class="shot__meta"><span>RUNNING SYSTEM / CAPTURE 03</span><span>REVIEW QUEUE: ACTIVE</span></div>
+              <button class="shot__open" type="button" data-src="img/workbench.png" data-alt="The Document Intelligence Workbench showing extraction confidence, validation results, and a human review queue." data-caption="Confidence is recorded per field. Low-confidence values are held for human review before downstream release." aria-label="Inspect the Document Intelligence Workbench screenshot">
+                <img src="img/workbench.png" alt="The Workbench dashboard: extraction metrics, per-document confidence scores, field-level validation results, and the review queue." width="1264" height="1200" loading="lazy" decoding="async">
+                <span class="shot__focus shot__focus--work-one"><span>FIELD CONFIDENCE</span></span>
+                <span class="shot__focus shot__focus--work-two"><span>HUMAN REVIEW</span></span>
+                <span class="shot__inspect">Inspect evidence <span aria-hidden="true">↗</span></span>
+              </button>
+            </div>
+            <figcaption>Confidence per field, validation results, and the review queue in one view.</figcaption>
+          </figure>
+        </div>
+      </article>
 
-  <!-- 5 -->
-  <article class="sys sys--wide">
-    <div class="sys__text">
-      <h3 class="sys__name">Multi-Agent Orchestration</h3>
-      <p class="sys__claim">A workflow that pauses for a human, survives a deploy, and remembers exactly where it stopped.</p>
-      <p class="sys__body">
-        Enterprise workflows that cross systems run on email chains and spreadsheet trackers.
-        No persistent state, no guaranteed record, no visibility into where something is or who
-        touched it. Human review here is a genuine interrupt in the LangGraph state machine
-        with a typed resume payload — not a polling loop.
-      </p>
-      <ul class="points">
-        <li><b>State outlives the process.</b> Workflows resume across restarts, deployments, and failures.</li>
-        <li><b>Append-only trail.</b> Every agent action and human decision, timestamped and actor-tagged.</li>
-        <li><b>Verified without a live model.</b> A 13-case golden eval at 100%, and 94 passing tests.</li>
-      </ul>
-      <p class="sys__infra">LangGraph · FastAPI · SQLAlchemy · MCP · Anthropic · OpenAI</p>
-    </div>
-    <figure class="shot shot--wide shot--crop">
-      <img src="img/audit-trail.png" alt="The audit trail for one compliance review: each stage — intake, rule check, risk scoring, human review — timestamped and expandable." width="1280" height="900" loading="lazy" decoding="async">
-      <figcaption>Every stage of one compliance review, timestamped and expandable.</figcaption>
-    </figure>
-  </article>
+      <article class="sys sys--imageRight" id="system-procure" data-system-index="4">
+        <div class="sys__text">
+          <p class="sys__index">SYSTEM 04 / DECISION EVIDENCE</p>
+          <h3 class="sys__name">ProcureAI</h3>
+          <p class="sys__claim">When a regulator asks why a $200,000 purchase was approved, the answer should not be in an email thread.</p>
+          <p class="sys__body">Five specialist agents validate policy, vendor, budget, risk, and authority. Each returns a typed result. The final decision packet cites the exact policy clause and preserves every input.</p>
+          <ul class="points">
+            <li><b>Decisions cite the clause.</b> The policy agent retrieves exact text from indexed policy, not a generic rule.</li>
+            <li><b>Agents do not parse strings.</b> They exchange typed message schemas over A2A, with no hidden state.</li>
+            <li><b>Every request produces a packet.</b> Structured, exportable, and built for an auditor.</li>
+          </ul>
+          <p class="sys__infra">FastAPI · LangChain · MCP · A2A · PostgreSQL · Azure OpenAI</p>
+        </div>
+        <div class="sys__visual">
+          <figure class="system-diagram system-diagram--procure">
+            <figcaption><span>Decision assembly</span><span>FIVE CHECKS → ONE PACKET</span></figcaption>
+            <svg viewBox="0 0 720 244" aria-hidden="true">
+              <path class="diagram-path" pathLength="1" d="M42 122H158M250 42H360M250 82H360M250 122H360M250 162H360M250 202H360M472 122H674"/>
+              <path class="diagram-path" pathLength="1" d="M158 122C202 122 202 42 250 42M158 122C202 122 202 82 250 82M158 122H250M158 122C202 122 202 162 250 162M158 122C202 122 202 202 250 202M360 42C420 42 420 122 472 122M360 82C420 82 420 122 472 122M360 122H472M360 162C420 162 420 122 472 122M360 202C420 202 420 122 472 122"/>
+              <g class="diagram-node" transform="translate(42 88)"><rect width="116" height="68"/><text x="14" y="25">REQUEST</text><text class="diagram-value" x="14" y="49">$200K</text></g>
+              <g class="diagram-chip" transform="translate(250 25)"><rect width="110" height="34"/><text x="12" y="22">POLICY / PASS</text></g>
+              <g class="diagram-chip" transform="translate(250 65)"><rect width="110" height="34"/><text x="12" y="22">VENDOR / PASS</text></g>
+              <g class="diagram-chip" transform="translate(250 105)"><rect width="110" height="34"/><text x="12" y="22">BUDGET / PASS</text></g>
+              <g class="diagram-chip" transform="translate(250 145)"><rect width="110" height="34"/><text x="12" y="22">RISK / MEDIUM</text></g>
+              <g class="diagram-chip" transform="translate(250 185)"><rect width="110" height="34"/><text x="12" y="22">AUTH / CFO</text></g>
+              <g class="diagram-node diagram-node--final" transform="translate(472 88)"><rect width="202" height="68"/><text x="14" y="25">EVIDENCE PACKET</text><text class="diagram-value" x="14" y="49">clause + actors + inputs</text></g>
+            </svg>
+          </figure>
+          <figure class="shot">
+            <div class="shot__frame">
+              <div class="shot__meta"><span>RUNNING SYSTEM / CAPTURE 04</span><span>PACKET: COMPLETE</span></div>
+              <button class="shot__open" type="button" data-src="img/procure-result.png" data-alt="A completed purchase request showing policy citations, budget figures, vendor status, risk scores, and required approvers." data-caption="A single approval decision carries the policy clause, budget evidence, vendor status, risk score, and required authority." aria-label="Inspect the ProcureAI evidence packet screenshot">
+                <img src="img/procure-result.png" alt="A completed purchase request showing the evidence packet: policy citations, budget figures, vendor status, risk scores, and required approvers." width="1440" height="900" loading="lazy" decoding="async">
+                <span class="shot__focus shot__focus--procure-one"><span>POLICY CITATION</span></span>
+                <span class="shot__focus shot__focus--procure-two"><span>APPROVAL PACKET</span></span>
+                <span class="shot__inspect">Inspect evidence <span aria-hidden="true">↗</span></span>
+              </button>
+            </div>
+            <figcaption>The evidence packet behind a single approval decision.</figcaption>
+          </figure>
+        </div>
+      </article>
 
-  <p class="work__nda">
-    Source is private. It opens under NDA for a serious engagement, and I'll run a live demo
-    on your own sample data. <a class="a" href="https://github.com/manjunath-hanmantgad/ai-engineering-portfolio" target="_blank" rel="noopener">Full briefs and architecture</a>
-  </p>
+      <article class="sys sys--wide" id="system-orchestration" data-system-index="5">
+        <div class="sys__text">
+          <p class="sys__index">SYSTEM 05 / DURABLE WORKFLOW</p>
+          <h3 class="sys__name">Multi-Agent Orchestration</h3>
+          <p class="sys__claim">A workflow that pauses for a human, survives a deploy, and remembers exactly where it stopped.</p>
+          <p class="sys__body">Human review is a genuine interrupt in the LangGraph state machine with a typed resume payload, not a polling loop. State persists across restarts and every action enters an append-only trail.</p>
+          <ul class="points">
+            <li><b>State outlives the process.</b> Workflows resume across restarts, deployments, and failures.</li>
+            <li><b>Append-only trail.</b> Every agent action and human decision is timestamped and actor-tagged.</li>
+            <li><b>Verified without a live model.</b> A 13-case golden eval at 100%, and 94 passing tests.</li>
+          </ul>
+          <p class="sys__infra">LangGraph · FastAPI · SQLAlchemy · MCP · Anthropic · OpenAI</p>
+        </div>
+        <figure class="system-diagram system-diagram--orchestration">
+          <figcaption><span>Durable state path</span><span>PAUSE → HUMAN → RESUME</span></figcaption>
+          <svg viewBox="0 0 720 220" aria-hidden="true">
+            <path class="diagram-path" pathLength="1" d="M34 110H138M242 110H344M448 110H552M656 110H690"/>
+            <g class="diagram-node" transform="translate(34 76)"><rect width="104" height="68"/><text x="14" y="25">INTAKE</text><text class="diagram-value" x="14" y="49">state 01</text></g>
+            <g class="diagram-node" transform="translate(138 76)"><rect width="104" height="68"/><text x="14" y="25">RULE CHECK</text><text class="diagram-value" x="14" y="49">state 02</text></g>
+            <g class="diagram-node diagram-node--warning" transform="translate(344 62)"><rect width="104" height="96"/><text x="14" y="25">PAUSED</text><text class="diagram-value" x="14" y="50">human review</text><text class="diagram-value" x="14" y="72">checkpoint saved</text></g>
+            <g class="diagram-node" transform="translate(552 76)"><rect width="104" height="68"/><text x="14" y="25">RESUMED</text><text class="diagram-value" x="14" y="49">typed payload</text></g>
+            <g class="diagram-stamp" transform="translate(580 20) rotate(-4)"><rect width="106" height="38"/><text x="53" y="24" text-anchor="middle">COMPLETED</text></g>
+          </svg>
+        </figure>
+        <figure class="shot shot--wide shot--crop">
+          <div class="shot__frame">
+            <div class="shot__meta"><span>RUNNING SYSTEM / CAPTURE 05</span><span>TRAIL: APPEND ONLY</span></div>
+            <button class="shot__open" type="button" data-src="img/audit-trail.png" data-alt="The audit trail for a compliance review, with intake, rule check, risk scoring, human review, resume, and completion events." data-caption="The workflow persists its checkpoint, pauses for a person, resumes from a typed payload, and records every stage." aria-label="Inspect the Multi-Agent Orchestration audit trail screenshot">
+              <img src="img/audit-trail.png" alt="The audit trail for one compliance review: each stage, including intake, rule check, risk scoring, and human review, is timestamped and expandable." width="1280" height="900" loading="lazy" decoding="async">
+              <span class="shot__focus shot__focus--audit-one"><span>HUMAN INTERRUPT</span></span>
+              <span class="shot__focus shot__focus--audit-two"><span>RESUME EVENT</span></span>
+              <span class="shot__inspect">Inspect evidence <span aria-hidden="true">↗</span></span>
+            </button>
+          </div>
+          <figcaption>Every stage of one compliance review, timestamped and expandable.</figcaption>
+        </figure>
+      </article>
+
+      <p class="work__nda">Source is private. It opens under NDA for a serious engagement, and I will run a live demo on your own sample data. <a class="a" href="https://github.com/manjunath-hanmantgad/ai-engineering-portfolio" target="_blank" rel="noopener">Full briefs and architecture</a></p>
+    </div>
+  </div>
 </section>
 
-<!-- ══════════ BASELINE ══════════ -->
 <section class="sheet" id="baseline">
-  <div class="sheet__head">
-    <h2 class="h2">What "done" means before it leaves my machine.</h2>
-    <p class="sheet__note">
-      This isn't a checklist I work towards. It's the floor every one of those five systems
-      already sits on.
-    </p>
+  <div class="section-head">
+    <p class="eyebrow">03 / Release standard</p>
+    <div class="section-head__copy">
+      <h2 class="h2">What “done” means before it leaves my machine.</h2>
+      <p class="sheet__note">This is not a checklist I work towards. It is the floor every one of those five systems already sits on.</p>
+    </div>
+  </div>
+
+  <div class="release-pipeline" aria-label="Production release pipeline">
+    <div class="release-pipeline__head"><span>RELEASE CONTROL / RC-07</span><span>MANUAL GATE REQUIRED</span></div>
+    <ol class="release-pipeline__track">
+      <li class="release-pipeline__stage"><span>01</span><b>Code</b><small>commit signed</small></li>
+      <li class="release-pipeline__stage"><span>02</span><b>Test</b><small>suite passing</small></li>
+      <li class="release-pipeline__stage"><span>03</span><b>Build</b><small>image tagged</small></li>
+      <li class="release-pipeline__stage"><span>04</span><b>Staging</b><small>smoke verified</small></li>
+      <li class="release-pipeline__stage release-pipeline__stage--gate"><span>05</span><b>Approval</b><small>manual gate</small></li>
+      <li class="release-pipeline__stage"><span>06</span><b>Production</b><small>revision active</small></li>
+      <li class="release-pipeline__stage"><span>07</span><b>Observe</b><small>SLO monitored</small></li>
+    </ol>
   </div>
 
   <dl class="base">
-    <div><dt>API</dt><dd>FastAPI, typed Pydantic schemas, generated OpenAPI docs</dd></div>
-    <div><dt>Auth</dt><dd>JWT, API keys, OIDC, Azure Entra ID</dd></div>
-    <div><dt>Database</dt><dd>PostgreSQL with Alembic migrations; SQLite for local dev only</dd></div>
+    <div><dt>API</dt><dd>FastAPI, typed Pydantic schemas, generated OpenAPI documentation</dd></div>
+    <div><dt>Authentication</dt><dd>JWT, API keys, OIDC, Azure Entra ID</dd></div>
+    <div><dt>Database</dt><dd>PostgreSQL with Alembic migrations; SQLite for local development only</dd></div>
     <div><dt>Containers</dt><dd>Docker and docker-compose with named volumes</dd></div>
     <div><dt>Release</dt><dd>GitHub Actions: lint, test, build, staging, production</dd></div>
     <div><dt>Infrastructure</dt><dd>Azure Bicep, Container Apps, Key Vault, ACR</dd></div>
     <div><dt>Observability</dt><dd>Prometheus metrics, Application Insights, structured JSON logs</dd></div>
-    <div><dt>LLMOps</dt><dd>Langfuse tracing, token cost tracking, golden eval datasets</dd></div>
+    <div><dt>LLMOps</dt><dd>Langfuse tracing, token cost tracking, golden evaluation datasets</dd></div>
     <div><dt>Security</dt><dd>Managed Identity, no hardcoded secrets, RBAC, audit logging</dd></div>
-    <div><dt>Testing</dt><dd>pytest, integration tests, an eval dataset per project</dd></div>
+    <div><dt>Testing</dt><dd>pytest, integration tests, and an evaluation dataset per project</dd></div>
   </dl>
 
   <div class="ways">
     <h3 class="h3">Three ways this usually starts</h3>
     <div class="ways__list">
-      <p><b>A fixed scope.</b> Defined deliverables, a timeline, and acceptance criteria we agree up front. Best when you already know what you need built.</p>
-      <p><b>A custom build.</b> Adapted to your stack, your data, and your compliance requirements. Best when there are existing systems it has to fit inside.</p>
-      <p><b>A deployment.</b> Provisioned into your own Azure tenant with handoff documentation. Best when your team needs to own it afterwards.</p>
+      <p><b>A fixed scope.</b> Defined deliverables, a timeline, and acceptance criteria agreed up front. Best when the required build is already clear.</p>
+      <p><b>A custom build.</b> Adapted to your stack, data, and compliance requirements. Best when it must fit existing systems.</p>
+      <p><b>A deployment.</b> Provisioned into your Azure tenant with handoff documentation. Best when your team must own it afterwards.</p>
     </div>
   </div>
 </section>
 
-<!-- ══════════ ARCHIVE ══════════ -->
 <section class="sheet sheet--quiet" id="archive">
-  <div class="sheet__head">
-    <h2 class="h3">Public repositories</h2>
-    <p class="sheet__note">The machine-learning and data years, still up. Dates are last push, not when the work happened.</p>
+  <div class="section-head section-head--small">
+    <p class="eyebrow">04 / Earlier work</p>
+    <div class="section-head__copy"><h2 class="h3">Public repositories</h2><p class="sheet__note">The machine-learning and data years, still available. Dates are last push, not when the work happened.</p></div>
   </div>
-
   <ul class="repos">
     <li><a href="https://github.com/manjunath-hanmantgad/ai-engineering-portfolio" target="_blank" rel="noopener"><span>ai-engineering-portfolio</span><span>Briefs, screenshots, and architecture for the five systems above</span><span>2026</span></a></li>
     <li><a href="https://github.com/manjunath-hanmantgad/livepnl" target="_blank" rel="noopener"><span>livepnl</span><span>Live profit-and-loss tracking</span><span>2026</span></a></li>
-    <li><a href="https://github.com/manjunath-hanmantgad/golang-coder" target="_blank" rel="noopener"><span>golang-coder</span><span>Go for data science and machine learning workloads</span><span>2023</span></a></li>
+    <li><a href="https://github.com/manjunath-hanmantgad/golang-coder" target="_blank" rel="noopener"><span>golang-coder</span><span>Go for data science and machine-learning workloads</span><span>2023</span></a></li>
     <li><a href="https://github.com/manjunath-hanmantgad/Natural-language-Processing" target="_blank" rel="noopener"><span>Natural-language-Processing</span><span>NLP experiments and notebooks</span><span>2023</span></a></li>
     <li><a href="https://github.com/manjunath-hanmantgad/Azure-Machine-learning" target="_blank" rel="noopener"><span>Azure-Machine-learning</span><span>Training, deployment, and scoring on Azure ML</span><span>2023</span></a></li>
     <li><a href="https://github.com/manjunath-hanmantgad/Azure-MachineLearning-Pipeline" target="_blank" rel="noopener"><span>Azure-MachineLearning-Pipeline</span><span>Pipeline orchestration on Azure ML</span><span>2021</span></a></li>
@@ -289,36 +431,50 @@
   </ul>
 </section>
 
-<!-- ══════════ CONTACT — drenched, closing the bracket ══════════ -->
 <section class="close" id="contact">
+  <span class="close__coordinate" aria-hidden="true">ENGAGEMENT / OPEN</span>
   <div class="close__grid">
-    <div>
-      <h2 class="plate plate--sm">
-        <span class="plate__l">Bring me the part</span>
-        <span class="plate__l">that has to work.</span>
-      </h2>
-      <p class="close__sub">
-        Send a paragraph about the problem. I'll tell you honestly whether AI is the right tool
-        for it, and what it would take to run in production — before either of us talks about scope.
-      </p>
+    <div class="close__copy">
+      <p class="eyebrow eyebrow--inverse">05 / New engagement</p>
+      <h2 class="plate plate--sm"><span class="plate__l">Bring me the part</span><span class="plate__l">that has to work.</span></h2>
+      <p class="close__sub">Send a paragraph about the problem. I will tell you honestly whether AI is the right tool and what it would take to run in production before either of us talks about scope.</p>
       <div class="hero__act">
-        <a class="btn btn--fill" href="mailto:mhanmant.freebi@gmail.com?subject=Intro%20call">Start a conversation</a>
-        <a class="btn btn--line" href="https://github.com/manjunath-hanmantgad" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn--fill" href="mailto:mhanmant.freebi@gmail.com?subject=Intro%20call"><span>Start a conversation</span><span aria-hidden="true">↗</span></a>
+        <a class="btn btn--line" href="https://github.com/manjunath-hanmantgad" target="_blank" rel="noopener"><span>GitHub</span><span aria-hidden="true">↗</span></a>
       </div>
     </div>
 
-    <dl class="nameplate nameplate--close">
-      <div><dt>Email</dt><dd><a class="a a--inv" href="mailto:mhanmant.freebi@gmail.com">mhanmant.freebi@gmail.com</a></dd></div>
-      <div><dt>GitHub</dt><dd><a class="a a--inv" href="https://github.com/manjunath-hanmantgad" target="_blank" rel="noopener">manjunath-hanmantgad</a></dd></div>
-      <div><dt>Time zone</dt><dd>IST — UTC+5:30</dd></div>
-      <div><dt>Typical reply</dt><dd>Within a working day</dd></div>
-    </dl>
+    <div class="close__record-wrap">
+      <div class="engagement-record">
+        <div class="engagement-record__head"><span>ENGAGEMENT RECORD</span><span>ER-2026-08</span></div>
+        <dl>
+          <div><dt>Scope</dt><dd>To be defined</dd></div>
+          <div><dt>Deployment</dt><dd>Client tenant</dd></div>
+          <div><dt>Handoff</dt><dd>Included</dd></div>
+          <div><dt>Response</dt><dd>Within a working day</dd></div>
+        </dl>
+        <div class="availability-stamp" aria-label="Available for new work"><span>AVAILABLE</span><span>FOR NEW WORK</span></div>
+      </div>
+      <dl class="nameplate nameplate--close">
+        <div><dt>Email</dt><dd><a class="a a--inv" href="mailto:mhanmant.freebi@gmail.com">mhanmant.freebi@gmail.com</a></dd></div>
+        <div><dt>GitHub</dt><dd><a class="a a--inv" href="https://github.com/manjunath-hanmantgad" target="_blank" rel="noopener">manjunath-hanmantgad</a></dd></div>
+        <div><dt>Time zone</dt><dd>IST, UTC+5:30</dd></div>
+      </dl>
+    </div>
   </div>
-
-  <p class="close__foot">Built by hand — HTML, CSS, and about eighty lines of JavaScript.</p>
+  <p class="close__foot">Built by hand: semantic HTML, CSS, inline SVG, and dependency-free JavaScript.</p>
 </section>
-
 </main>
+
+<dialog class="evidence-dialog" id="evidence-dialog" aria-labelledby="evidence-dialog-title">
+  <div class="evidence-dialog__panel">
+    <header class="evidence-dialog__head">
+      <div><p class="eyebrow" id="evidence-dialog-title">System evidence / Full capture</p><p>Press Escape or use close to return.</p></div>
+      <button class="evidence-dialog__close" type="button" aria-label="Close screenshot">Close <span aria-hidden="true">×</span></button>
+    </header>
+    <div class="evidence-dialog__body"><img class="evidence-dialog__image" alt=""><p class="evidence-dialog__caption"></p></div>
+  </div>
+</dialog>
 
 <script src="main.js" defer></script>
 </body>
