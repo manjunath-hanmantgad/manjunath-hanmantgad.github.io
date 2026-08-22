@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manjunath — AI systems that account for themselves</title>
+<meta name="description" content="I build the part of AI that has to hold up afterwards: access control enforced before retrieval, citations on every answer, cost and quality telemetry, and audit trails that survive an auditor.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#123a5e">
+<meta property="og:title" content="Manjunath — AI systems that account for themselves">
+<meta property="og:description" content="Five production LLM systems. Every answer cites its source, every decision names the clause, every correction is logged.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2311395c'/><rect x='6' y='9' width='20' height='14' fill='none' stroke='%23fff' stroke-width='1.6'/><path d='M10 16h5M10 19h9' stroke='%23fff' stroke-width='1.6'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Martian+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <a class="bar__id" href="#top">
+    <svg class="bar__glyph" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="8" width="22" height="16"/><path d="M10 15h5M10 19h10"/></svg>
+    Manjunath
+  </a>
+  <nav class="bar__nav" aria-label="Sections">
+    <a href="#difference">The difference</a>
+    <a href="#work">Systems</a>
+    <a href="#baseline">Baseline</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="bar__cta" href="mailto:mhanmant.freebi@gmail.com?subject=Intro%20call">Start a conversation</a>
+</header>
+
+<main id="main">
+
+<!-- ══════════ HERO — drenched ══════════ -->
+<section class="hero" id="top">
+  <div class="hero__grid">
+
+    <div class="hero__lead">
+      <h1 class="plate" id="hero-h1">
+        <span class="plate__l">AI systems</span>
+        <span class="plate__l">that account</span>
+        <span class="plate__l">for themselves.</span>
+      </h1>
+
+      <p class="hero__sub">
+        Every answer cites the document it came from. Every approval names the clause that
+        justified it. Every correction is stamped with a timestamp and a person. I build the
+        half of an AI system that has to hold up <em>after</em> the demo — the auth, the access
+        control, the telemetry, the migrations, and the record.
+      </p>
+
+      <div class="hero__act">
+        <a class="btn btn--fill" href="mailto:mhanmant.freebi@gmail.com?subject=Intro%20call">Start a conversation</a>
+        <a class="btn btn--line" href="#work">Look at the systems</a>
+      </div>
+    </div>
+
+    <!-- The nameplate: the brand device, used once. -->
+    <dl class="nameplate">
+      <div><dt>Engineer</dt><dd>Manjunath Hanmantgad</dd></div>
+      <div><dt>Based</dt><dd>India — working remote</dd></div>
+      <div><dt>Discipline</dt><dd>LLM systems on Azure</dd></div>
+      <div><dt>Built</dt><dd>Five, to deployment standard</dd></div>
+      <div><dt>Source</dt><dd>Private — open under NDA</dd></div>
+      <div class="nameplate__sig"><dt>Status</dt><dd>Available for new work</dd></div>
+    </dl>
+
+  </div>
+</section>
+
+<!-- ══════════ THE DIFFERENCE — spec table ══════════ -->
+<section class="sheet" id="difference">
+  <div class="sheet__head">
+    <h2 class="h2">The demo is the easy half.</h2>
+    <p class="sheet__note">
+      Getting a model to return an answer takes an afternoon. Everything in the right-hand
+      column is what takes the other three months, and it's the only reason a system is still
+      standing a year later.
+    </p>
+  </div>
+
+  <table class="spec">
+    <caption class="vh">Comparison of prototype practice against production practice</caption>
+    <thead>
+      <tr>
+        <th scope="col">Concern</th>
+        <th scope="col" data-short="Prototype">How a prototype does it</th>
+        <th scope="col" data-short="Shipped">How I ship it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Secrets</th>       <td>Hardcoded API keys</td>          <td>Key Vault with Managed Identity</td></tr>
+      <tr><th scope="row">Data</th>          <td>SQLite, no migrations</td>       <td>PostgreSQL with Alembic migrations</td></tr>
+      <tr><th scope="row">Access</th>        <td>No auth</td>                     <td>JWT, API keys, OIDC, Entra ID</td></tr>
+      <tr><th scope="row">Logging</th>       <td><code>print()</code></td>        <td>Structured JSON into Application Insights</td></tr>
+      <tr><th scope="row">Correctness</th>   <td>No tests</td>                    <td>pytest, integration tests, golden eval sets</td></tr>
+      <tr><th scope="row">Infrastructure</th><td><code>docker run</code> in a README</td><td>Bicep IaC onto Container Apps</td></tr>
+      <tr><th scope="row">Release</th>       <td>"Works on my machine"</td>       <td>CI to staging to production, with a manual gate</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══════════ WORK ══════════ -->
+<section class="work" id="work">
+  <div class="work__intro">
+    <h2 class="h2">Five systems.</h2>
+    <p class="sheet__note">
+      Each one runs behind authentication, emits metrics, deploys from a pipeline, and hands
+      off with documentation. These are screenshots of the running software.
+    </p>
+  </div>
+
+  <!-- 1 -->
+  <article class="sys sys--imageRight">
+    <div class="sys__text">
+      <h3 class="sys__name">LLM Observatory</h3>
+      <p class="sys__claim">LLM features degrade quietly. This is the instrument that notices.</p>
+      <p class="sys__body">
+        A prompt change or a model update can raise hallucination rates and cost long before
+        any health check reacts. Teams running support, sales, and research endpoints usually
+        can't say which one is expensive, or which one is getting worse.
+      </p>
+      <ul class="points">
+        <li><b>Scored per trace.</b> Faithfulness, relevancy, and hallucination, with LLM-as-judge and a deterministic fallback.</li>
+        <li><b>Incidents, not alerts.</b> A threshold breach opens an incident that moves acknowledge to resolve.</li>
+        <li><b>Cost attributed.</b> Tokens and dollars per endpoint, per model, per window.</li>
+      </ul>
+      <p class="sys__infra">FastAPI · Prometheus · Application Insights · Azure OpenAI · PostgreSQL</p>
+    </div>
+    <figure class="shot">
+      <img src="img/observatory.png" alt="The Observatory dashboard: per-endpoint latency, token cost, and evaluation scores across live LLM traffic." width="960" height="863" loading="lazy" decoding="async">
+      <figcaption>Traffic, cost, and quality for every endpoint in one view.</figcaption>
+    </figure>
+  </article>
+
+  <!-- 2 — the strongest proof, so it gets the wide treatment -->
+  <article class="sys sys--wide">
+    <div class="sys__text">
+      <h3 class="sys__name">Enterprise RAG</h3>
+      <p class="sys__claim">Most RAG systems filter the answer. This one never retrieves the document.</p>
+      <p class="sys__body">
+        Applying access control after retrieval means a contractor can still pull a restricted
+        file if the question is phrased well enough. Here the restricted documents leave the
+        candidate set before any AI processing happens — the screenshot below is the same
+        question asked twice, once as an employee and once as finance.
+      </p>
+      <ul class="points">
+        <li><b>Enforced before retrieval.</b> Not filtered out of the response afterwards.</li>
+        <li><b>No citation, no answer.</b> Every response names its source document, chunk, and retrieval score.</li>
+        <li><b>Leakage is measured.</b> A built-in eval set tracks citation coverage and restricted-document leakage as numbers.</li>
+      </ul>
+      <p class="sys__infra">FastAPI · Azure AI Search · Entra ID · Key Vault · PostgreSQL</p>
+    </div>
+    <figure class="shot shot--wide">
+      <img src="img/rag-permissions.png" alt="One question asked under two roles. The employee gets no accessible source material; finance gets an answer citing the finance-forecast document." width="1440" height="1000" loading="lazy" decoding="async">
+      <figcaption>Same question, two roles. The finance forecast is never in the employee's candidate set.</figcaption>
+    </figure>
+  </article>
+
+  <!-- 3 -->
+  <article class="sys sys--imageLeft">
+    <figure class="shot">
+      <img src="img/workbench.png" alt="The Workbench dashboard: extraction metrics, per-document confidence scores, field-level validation results, and the review queue." width="1264" height="1200" loading="lazy" decoding="async">
+      <figcaption>Confidence per field, validation results, and the review queue in one view.</figcaption>
+    </figure>
+    <div class="sys__text">
+      <h3 class="sys__name">Document Intelligence Workbench</h3>
+      <p class="sys__claim">A confidence score for every field, not a pass or fail for the page.</p>
+      <p class="sys__body">
+        Finance and legal teams key invoice and contract data into downstream systems by hand.
+        It's repetitive, it's error-prone, and it leaves no record of what was extracted, what
+        was corrected, or who changed it. The reconciliation problem shows up weeks later.
+      </p>
+      <ul class="points">
+        <li><b>Rules, not vibes.</b> Invoice totals must match line items; contract expiry must follow the effective date.</li>
+        <li><b>Low confidence routes to a person.</b> Nothing reaches a downstream system unreviewed.</li>
+        <li><b>Corrections are evidence.</b> Every extraction and approval is logged with a timestamp, an actor, and a payload.</li>
+      </ul>
+      <p class="sys__infra">FastAPI · Azure Document Intelligence · Blob Storage · PostgreSQL</p>
+    </div>
+  </article>
+
+  <!-- 4 -->
+  <article class="sys sys--imageRight">
+    <div class="sys__text">
+      <h3 class="sys__name">ProcureAI</h3>
+      <p class="sys__claim">When a regulator asks why a $200,000 purchase was approved, the answer shouldn't be in an email thread.</p>
+      <p class="sys__body">
+        Purchase approvals run on institutional memory rather than the policy document. Budget
+        checks happen by email. Vendor risk gets assumed. Five specialist agents — policy,
+        vendor, budget, risk, and approval — each validate one domain and hand back a typed result.
+      </p>
+      <ul class="points">
+        <li><b>Decisions cite the clause.</b> The policy agent retrieves the exact text from indexed policy, not a generic rule.</li>
+        <li><b>Agents don't parse strings.</b> They exchange typed message schemas over A2A, with no hidden state.</li>
+        <li><b>Every request produces a packet.</b> Structured, exportable, and built to be handed to an auditor.</li>
+      </ul>
+      <p class="sys__infra">FastAPI · LangChain · MCP · A2A · PostgreSQL · Azure OpenAI</p>
+    </div>
+    <figure class="shot">
+      <img src="img/procure-result.png" alt="A completed purchase request showing the evidence packet: policy citations, budget figures, vendor status, risk scores, and required approvers." width="1440" height="900" loading="lazy" decoding="async">
+      <figcaption>The evidence packet behind a single approval decision.</figcaption>
+    </figure>
+  </article>
+
+  <!-- 5 -->
+  <article class="sys sys--wide">
+    <div class="sys__text">
+      <h3 class="sys__name">Multi-Agent Orchestration</h3>
+      <p class="sys__claim">A workflow that pauses for a human, survives a deploy, and remembers exactly where it stopped.</p>
+      <p class="sys__body">
+        Enterprise workflows that cross systems run on email chains and spreadsheet trackers.
+        No persistent state, no guaranteed record, no visibility into where something is or who
+        touched it. Human review here is a genuine interrupt in the LangGraph state machine
+        with a typed resume payload — not a polling loop.
+      </p>
+      <ul class="points">
+        <li><b>State outlives the process.</b> Workflows resume across restarts, deployments, and failures.</li>
+        <li><b>Append-only trail.</b> Every agent action and human decision, timestamped and actor-tagged.</li>
+        <li><b>Verified without a live model.</b> A 13-case golden eval at 100%, and 94 passing tests.</li>
+      </ul>
+      <p class="sys__infra">LangGraph · FastAPI · SQLAlchemy · MCP · Anthropic · OpenAI</p>
+    </div>
+    <figure class="shot shot--wide shot--crop">
+      <img src="img/audit-trail.png" alt="The audit trail for one compliance review: each stage — intake, rule check, risk scoring, human review — timestamped and expandable." width="1280" height="900" loading="lazy" decoding="async">
+      <figcaption>Every stage of one compliance review, timestamped and expandable.</figcaption>
+    </figure>
+  </article>
+
+  <p class="work__nda">
+    Source is private. It opens under NDA for a serious engagement, and I'll run a live demo
+    on your own sample data. <a class="a" href="https://github.com/manjunath-hanmantgad/ai-engineering-portfolio" target="_blank" rel="noopener">Full briefs and architecture</a>
+  </p>
+</section>
+
+<!-- ══════════ BASELINE ══════════ -->
+<section class="sheet" id="baseline">
+  <div class="sheet__head">
+    <h2 class="h2">What "done" means before it leaves my machine.</h2>
+    <p class="sheet__note">
+      This isn't a checklist I work towards. It's the floor every one of those five systems
+      already sits on.
+    </p>
+  </div>
+
+  <dl class="base">
+    <div><dt>API</dt><dd>FastAPI, typed Pydantic schemas, generated OpenAPI docs</dd></div>
+    <div><dt>Auth</dt><dd>JWT, API keys, OIDC, Azure Entra ID</dd></div>
+    <div><dt>Database</dt><dd>PostgreSQL with Alembic migrations; SQLite for local dev only</dd></div>
+    <div><dt>Containers</dt><dd>Docker and docker-compose with named volumes</dd></div>
+    <div><dt>Release</dt><dd>GitHub Actions: lint, test, build, staging, production</dd></div>
+    <div><dt>Infrastructure</dt><dd>Azure Bicep, Container Apps, Key Vault, ACR</dd></div>
+    <div><dt>Observability</dt><dd>Prometheus metrics, Application Insights, structured JSON logs</dd></div>
+    <div><dt>LLMOps</dt><dd>Langfuse tracing, token cost tracking, golden eval datasets</dd></div>
+    <div><dt>Security</dt><dd>Managed Identity, no hardcoded secrets, RBAC, audit logging</dd></div>
+    <div><dt>Testing</dt><dd>pytest, integration tests, an eval dataset per project</dd></div>
+  </dl>
+
+  <div class="ways">
+    <h3 class="h3">Three ways this usually starts</h3>
+    <div class="ways__list">
+      <p><b>A fixed scope.</b> Defined deliverables, a timeline, and acceptance criteria we agree up front. Best when you already know what you need built.</p>
+      <p><b>A custom build.</b> Adapted to your stack, your data, and your compliance requirements. Best when there are existing systems it has to fit inside.</p>
+      <p><b>A deployment.</b> Provisioned into your own Azure tenant with handoff documentation. Best when your team needs to own it afterwards.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ARCHIVE ══════════ -->
+<section class="sheet sheet--quiet" id="archive">
+  <div class="sheet__head">
+    <h2 class="h3">Public repositories</h2>
+    <p class="sheet__note">The machine-learning and data years, still up. Dates are last push, not when the work happened.</p>
+  </div>
+
+  <ul class="repos">
+    <li><a href="https://github.com/manjunath-hanmantgad/ai-engineering-portfolio" target="_blank" rel="noopener"><span>ai-engineering-portfolio</span><span>Briefs, screenshots, and architecture for the five systems above</span><span>2026</span></a></li>
+    <li><a href="https://github.com/manjunath-hanmantgad/livepnl" target="_blank" rel="noopener"><span>livepnl</span><span>Live profit-and-loss tracking</span><span>2026</span></a></li>
+    <li><a href="https://github.com/manjunath-hanmantgad/golang-coder" target="_blank" rel="noopener"><span>golang-coder</span><span>Go for data science and machine learning workloads</span><span>2023</span></a></li>
+    <li><a href="https://github.com/manjunath-hanmantgad/Natural-language-Processing" target="_blank" rel="noopener"><span>Natural-language-Processing</span><span>NLP experiments and notebooks</span><span>2023</span></a></li>
+    <li><a href="https://github.com/manjunath-hanmantgad/Azure-Machine-learning" target="_blank" rel="noopener"><span>Azure-Machine-learning</span><span>Training, deployment, and scoring on Azure ML</span><span>2023</span></a></li>
+    <li><a href="https://github.com/manjunath-hanmantgad/Azure-MachineLearning-Pipeline" target="_blank" rel="noopener"><span>Azure-MachineLearning-Pipeline</span><span>Pipeline orchestration on Azure ML</span><span>2021</span></a></li>
+    <li><a href="https://github.com/manjunath-hanmantgad/Power-BI" target="_blank" rel="noopener"><span>Power-BI</span><span>Power BI reporting for machine learning</span><span>2021</span></a></li>
+  </ul>
+</section>
+
+<!-- ══════════ CONTACT — drenched, closing the bracket ══════════ -->
+<section class="close" id="contact">
+  <div class="close__grid">
+    <div>
+      <h2 class="plate plate--sm">
+        <span class="plate__l">Bring me the part</span>
+        <span class="plate__l">that has to work.</span>
+      </h2>
+      <p class="close__sub">
+        Send a paragraph about the problem. I'll tell you honestly whether AI is the right tool
+        for it, and what it would take to run in production — before either of us talks about scope.
+      </p>
+      <div class="hero__act">
+        <a class="btn btn--fill" href="mailto:mhanmant.freebi@gmail.com?subject=Intro%20call">Start a conversation</a>
+        <a class="btn btn--line" href="https://github.com/manjunath-hanmantgad" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <dl class="nameplate nameplate--close">
+      <div><dt>Email</dt><dd><a class="a a--inv" href="mailto:mhanmant.freebi@gmail.com">mhanmant.freebi@gmail.com</a></dd></div>
+      <div><dt>GitHub</dt><dd><a class="a a--inv" href="https://github.com/manjunath-hanmantgad" target="_blank" rel="noopener">manjunath-hanmantgad</a></dd></div>
+      <div><dt>Time zone</dt><dd>IST — UTC+5:30</dd></div>
+      <div><dt>Typical reply</dt><dd>Within a working day</dd></div>
+    </dl>
+  </div>
+
+  <p class="close__foot">Built by hand — HTML, CSS, and about eighty lines of JavaScript.</p>
+</section>
+
+</main>
+
+<script src="main.js" defer></script>
+</body>
+</html>
