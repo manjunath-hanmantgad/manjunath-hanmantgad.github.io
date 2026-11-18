@@ -1,0 +1,399 @@
+/* ═══════════════════════════════════════════════════════════
+   EVIDENCE IN MOTION
+   The page now behaves like a system being inspected. Motion
+   explains controls and state; it does not decorate empty space.
+   ═══════════════════════════════════════════════════════════ */
+
+:root { --page-progress: 0%; }
+body { overflow-x: hidden; }
+
+.bar {
+  background: oklch(1 0 0 / 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: padding 220ms var(--ease), box-shadow 220ms var(--ease);
+}
+.bar.is-compact {
+  padding-top: 9px;
+  padding-bottom: 9px;
+  box-shadow: 0 8px 28px oklch(0.272 0.132 246 / 0.06);
+}
+.bar__nav a[aria-current="location"] {
+  color: var(--ink);
+  border-bottom-color: var(--stamp);
+}
+.bar__progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: var(--page-progress);
+  height: 2px;
+  background: var(--stamp);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.btn {
+  gap: 0.65rem;
+  transform: translateY(0);
+  transition: background 200ms var(--ease), color 200ms var(--ease),
+              border-color 200ms var(--ease), transform 200ms var(--ease),
+              box-shadow 200ms var(--ease);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(1px); }
+.btn--fill:hover { box-shadow: 0 10px 28px oklch(0.18 0.08 245 / 0.24); }
+
+.hero,
+.close {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.hero::before,
+.close::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(var(--on-ink-rule) 1px, transparent 1px),
+    linear-gradient(90deg, var(--on-ink-rule) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.16;
+  mask-image: linear-gradient(100deg, transparent 0%, #000 38%, #000 100%);
+}
+.hero::after,
+.close::after {
+  content: "TRACE / VERIFIED / 001";
+  position: absolute;
+  z-index: -1;
+  right: clamp(20px, 4vw, 60px);
+  top: 26px;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  color: var(--on-ink-soft);
+  opacity: 0.42;
+}
+
+.hero__grid { align-items: center; }
+.hero__proof {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+.hero__proof .nameplate { margin: 0; }
+
+.evidence-flow {
+  border: 1px solid var(--on-ink-rule);
+  background: oklch(1 0 0 / 0.035);
+  overflow: hidden;
+}
+.evidence-flow__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 34px;
+  padding: 0.45rem 0.7rem;
+  border-bottom: 1px solid var(--on-ink-rule);
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  color: var(--on-ink-soft);
+}
+.evidence-flow__track {
+  position: relative;
+  padding: 0.7rem 0.75rem 0.8rem 2.55rem;
+}
+.evidence-flow__line {
+  position: absolute;
+  left: 1.31rem;
+  top: 1.2rem;
+  bottom: 1.3rem;
+  width: 1px;
+  background: var(--on-ink-rule);
+}
+.evidence-flow__trace {
+  position: absolute;
+  z-index: 2;
+  left: 1.08rem;
+  top: 1.12rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--on-ink);
+  box-shadow: 0 0 0 4px oklch(1 0 0 / 0.12), 0 0 18px oklch(1 0 0 / 0.34);
+}
+.evidence-flow__nodes {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.evidence-flow__node {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.3rem minmax(0, 1fr);
+  align-items: center;
+  min-height: 34px;
+  padding: 0.28rem 0.5rem;
+  border: 1px solid transparent;
+  color: var(--on-ink-soft);
+}
+.evidence-flow__node::before {
+  content: "";
+  position: absolute;
+  left: -1.28rem;
+  width: 0.62rem;
+  height: 1px;
+  background: var(--on-ink-rule);
+}
+.evidence-flow__node span {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  color: var(--on-ink-soft);
+}
+.evidence-flow__node b {
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-variation-settings: "wdth" 96;
+  color: var(--on-ink);
+}
+.evidence-flow__node--gate {
+  border-color: oklch(0.52 0.19 27 / 0.45);
+  background: oklch(0.52 0.19 27 / 0.08);
+}
+.evidence-flow__node--audit { background: oklch(1 0 0 / 0.06); }
+.evidence-flow__blocked {
+  position: absolute;
+  right: 0.7rem;
+  top: 5.8rem;
+  padding: 0.25rem 0.4rem;
+  border: 1px solid oklch(0.62 0.19 27 / 0.58);
+  font-family: var(--mono);
+  font-size: 0.47rem;
+  letter-spacing: 0.04em;
+  color: oklch(0.87 0.08 27);
+  transform: rotate(-2deg);
+}
+
+@keyframes trace-control-path {
+  0%, 8% { transform: translateY(0); opacity: 0; }
+  12% { opacity: 1; }
+  84% { transform: translateY(176px); opacity: 1; }
+  92%, 100% { transform: translateY(176px); opacity: 0; }
+}
+@keyframes evidence-node-check {
+  from { opacity: 0.55; transform: translateX(-7px); }
+  to { opacity: 1; transform: none; }
+}
+.is-settling .evidence-flow__trace {
+  animation: trace-control-path 4200ms var(--ease) 850ms both;
+}
+.is-settling .evidence-flow__node {
+  animation: evidence-node-check 440ms var(--ease) backwards;
+}
+.is-settling .evidence-flow__node:nth-child(1) { animation-delay: 950ms; }
+.is-settling .evidence-flow__node:nth-child(2) { animation-delay: 1250ms; }
+.is-settling .evidence-flow__node:nth-child(3) { animation-delay: 1550ms; }
+.is-settling .evidence-flow__node:nth-child(4) { animation-delay: 2000ms; }
+.is-settling .evidence-flow__node:nth-child(5) { animation-delay: 2350ms; }
+.is-settling .evidence-flow__node:nth-child(6) { animation-delay: 2700ms; }
+
+/* Prototype → production verification. */
+.spec tbody tr { position: relative; }
+.spec tbody tr.is-in-view { animation: evidence-row 620ms var(--ease) both; }
+.spec td:last-child { position: relative; padding-right: 2.6rem; }
+.spec td:last-child::after {
+  content: "✓";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  width: 1.15rem;
+  height: 1.15rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  opacity: 0;
+  transform: translateY(-50%) scale(0.55) rotate(-8deg);
+}
+.spec tbody tr.is-in-view td:last-child::after {
+  animation: verify-cell 420ms var(--ease) 260ms forwards;
+}
+@keyframes evidence-row {
+  from { opacity: 0.58; transform: translateX(-8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes verify-cell {
+  to { opacity: 1; transform: translateY(-50%) scale(1) rotate(0); }
+}
+
+/* A sticky audit trail through the five case studies. */
+.work { position: relative; }
+.work-rail {
+  position: sticky;
+  top: 69px;
+  z-index: 30;
+  margin: 0 0 clamp(24px, 4vh, 44px);
+  border: 1px solid var(--rule-firm);
+  background: oklch(1 0 0 / 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 14px 38px oklch(0.27 0.05 246 / 0.06);
+}
+.work-rail ol {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.work-rail li + li { border-left: 1px solid var(--rule); }
+.work-rail a {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: center;
+  min-height: 46px;
+  padding: 0.55rem 0.7rem;
+  overflow: hidden;
+  color: var(--pencil);
+  text-decoration: none;
+  font-size: 0.76rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 180ms var(--ease), background 180ms var(--ease);
+}
+.work-rail a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 2px;
+  background: var(--ink);
+  transition: right 360ms var(--ease);
+}
+.work-rail a span {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  color: var(--pencil);
+}
+.work-rail a[aria-current="step"] {
+  color: var(--ink);
+  background: var(--paper-2);
+}
+.work-rail a[aria-current="step"]::after { right: 0; }
+
+/* Compact diagrams. They remain readable diagrams with motion off. */
+.system-diagram {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.4rem;
+  margin: 1.25rem 0 1.55rem;
+  padding: 0.62rem;
+  border: 1px solid var(--rule-firm);
+  background:
+    linear-gradient(90deg, transparent 49.7%, var(--rule) 50%, transparent 50.3%),
+    var(--paper-2);
+  overflow: hidden;
+}
+.system-diagram::before {
+  content: "CONTROL FLOW";
+  position: absolute;
+  right: 0.55rem;
+  top: 0.28rem;
+  font-family: var(--mono);
+  font-size: 0.43rem;
+  letter-spacing: 0.08em;
+  color: var(--pencil);
+  opacity: 0.58;
+}
+.system-diagram__node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: center;
+  min-height: 54px;
+  padding: 0.55rem 0.58rem;
+  border: 1px solid var(--rule-firm);
+  background: var(--paper);
+  color: var(--graphite);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.system-diagram__node small {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-family: var(--mono);
+  font-size: 0.47rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--pencil);
+}
+.system-diagram__link {
+  align-self: center;
+  height: 1px;
+  background: var(--ink);
+  transform-origin: left;
+}
+.system-diagram--observatory {
+  grid-template-columns: minmax(0, 1fr) 1.8rem minmax(0, 1fr) 1.8rem minmax(0, 1fr);
+}
+.system-diagram--documents { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.system-diagram__node::after {
+  content: "";
+  position: absolute;
+  left: -0.42rem;
+  top: 50%;
+  width: 0.38rem;
+  height: 1px;
+  background: var(--ink);
+}
+.system-diagram__node:first-of-type::after { display: none; }
+.system-diagram__node--alert,
+.system-diagram__node--blocked,
+.system-diagram__node--review,
+.system-diagram__node--pause,
+.system-diagram__node--gate {
+  border-color: oklch(0.52 0.19 27 / 0.55);
+  background: oklch(0.52 0.19 27 / 0.06);
+}
+.system-diagram__node--blocked {
+  color: var(--stamp);
+  text-decoration: line-through;
+  opacity: 0.76;
+}
+.system-diagram__node--cited {
+  border-color: var(--ink);
+  box-shadow: inset 0 -3px 0 var(--ink);
+}
+.system-diagram.is-in-view .system-diagram__node {
+  animation: diagram-node 540ms var(--ease) backwards;
+}
+.system-diagram.is-in-view .system-diagram__node:nth-of-type(1) { animation-delay: 40ms; }
+.system-diagram.is-in-view .system-diagram__node:nth-of-type(2) { animation-delay: 150ms; }
+.system-diagram.is-in-view .system-diagram__node:nth-of-type(3) { animation-delay: 260ms; }
+.system-diagram.is-in-view .system-diagram__node:nth-of-type(4) { animation-delay: 370ms; }
+.system-diagram.is-in-view .system-diagram__node:nth-of-type(5) { animation-delay: 480ms; }
+.system-diagram.is-in-view .system-diagram__link {
+  animation: draw-link 620ms var(--ease) 120ms backwards;
+}
+@keyframes diagram-node {
+  from { opacity: 0.2; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes draw-link {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
